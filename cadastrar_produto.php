@@ -1,9 +1,3 @@
-<?php
-
-include 'conexao.php';
-
-$id = $_GET['id'];
-?>
 <!DOCTYPE html>
 <html>
 
@@ -31,6 +25,7 @@ $id = $_GET['id'];
     }
     </style>
 
+
 </head>
 
 <body style="background: url(bg.jpg); background-repeat: no-repeat;">
@@ -48,8 +43,7 @@ $id = $_GET['id'];
                         <a class="nav-link active" aria-current="page" href="/projeto/">Home</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="listar_produtos.php">Listar
-                            produtos</a>
+                        <a class="nav-link active" aria-current="page" href="listar_produtos.php">Listar produtos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="cadastrar_produto.php">Cadastrar
@@ -65,36 +59,22 @@ $id = $_GET['id'];
         </div>
     </nav>
     <div class="container" id="tamanhoContainer">
-        <h4 style="color: white; margin-top: 20px;">Editar produtos</h4>
-        <form action="_atualizar_produto.php" method="POST">
-            <?php 
-        
-        $sql = "SELECT * FROM `estoque` WHERE id_estoque = $id";
-        $buscar = mysqli_query($conexao, $sql);
-        while($array = mysqli_fetch_array($buscar)){
-                        $id_estoque = $array['id_estoque'];
-                        $nroproduto = $array['nroproduto'];
-                        $nomeproduto = $array['nomeproduto'];
-                        $categoria = $array['categoria'];
-                        $quantidade = $array['quantidade'];
-                        $fornecedor = $array['fornecedor']; 
-
-        ?>
+        <h4 style="color: white; margin-top: 20px;">Cadastro de produtos</h4>
+        <form action="_inserir_produto.php" method="POST">
             <div class="mb-3">
-                <label class="form-label" style="color: white; margin-top: 20px;">Número do produto</label>
+                <label class="form-label" style="color: white;margin-top: 20px;">Número do produto</label>
                 <input type="number" class="form-control" placeholder="Insira o id do número do produto"
-                    name="nroproduto" value="<?php echo $nroproduto ?>" disabled>
-                <input type="number" class="form-control" name="id" value="<?php echo $id ?>" style="display: none ">
+                    name="nroproduto" required>
             </div>
             <div class="mb-3">
                 <label class="form-label" style="color: white; margin-top: 20px;">Nome do produto</label>
                 <input type="text" class="form-control" placeholder="Insira o nome do produto" name="nomeproduto"
-                    value="<?php echo $nomeproduto ?>">
+                    required>
             </div>
 
             <div class="form-group">
                 <label style="color: white; margin-top: 20px;">Categoria</label>
-                <select class="form-select" name="categoria" value="<?php echo $categoria ?>">
+                <select class="form-select" name="categoria" required>
 
                     <option value="1">Periféricos</option>
                     <option value="2">Hardware</option>
@@ -105,13 +85,13 @@ $id = $_GET['id'];
             <div class="mb-3">
                 <label class="form-label" style="color: white; margin-top: 20px;">Quantidade do produto</label>
                 <input type="number" class="form-control" placeholder="Insira a quantidade do produto" name="quantidade"
-                    value="<?php echo $quantidade ?>">
+                    required>
             </div>
 
 
             <div class="form-group">
                 <label style="color: white; margin-top: 20px;">Fornecedor</label>
-                <select class="form-select" name="fornecedor" value="<?php echo $fornecedor ?>">
+                <select class="form-select" name="fornecedor" required>
 
                     <option>Fornecedor A</option>
                     <option>Fornecedor B</option>
@@ -120,8 +100,8 @@ $id = $_GET['id'];
                 </select>
             </div>
 
-            <button type="submit" class="btn btn-primary" id="btnCad">Atualizar</button>
-            <?php } ?>
+            <button type="submit" class="btn btn-primary" id="btnCad">Cadastrar</button>
+
         </form>
     </div>
 

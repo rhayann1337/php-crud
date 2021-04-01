@@ -18,14 +18,28 @@
         text-align: right;
         margin-top: 20px;
     }
+
+    #textHome {
+        margin-top: 10px;
+    }
+
+    #navIcon {
+        width: 50px;
+        height: 50px;
+    }
+
+    #imgHome {
+        width: 500px;
+        height: 500px;
+    }
     </style>
 
 </head>
 
-<body>
+<body style="background: url(bg.jpg); background-repeat: no-repeat;">
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Navbar</a>
+            <img src="https://www.php.net/images/logos/new-php-logo.svg" id="navIcon" />
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -34,21 +48,14 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                        <a class="nav-link active" aria-current="page" href="/projeto/">Home</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Dropdown
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">Action</a></li>
-                            <li><a class="dropdown-item" href="#">Another action</a></li>
-                            <li>
-                                <hr class="dropdown-divider">
-                            </li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
-                        </ul>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="listar_produtos.php">Listar produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="cadastrar_produto.php">Cadastrar
+                            produtos</a>
                     </li>
 
                 </ul>
@@ -60,50 +67,34 @@
         </div>
     </nav>
     <div class="container" id="tamanhoContainer">
-        <h4>Cadastro de produtos</h4>
-        <form action="_inserir_produto.php" method="POST">
-            <div class="mb-3">
-                <label class="form-label">Número do produto</label>
-                <input type="number" class="form-control" placeholder="Insira o id do número do produto"
-                    name="nroproduto" required>
+        <center>
+            <img id="imgHome" src="https://www.php.net/images/logos/new-php-logo.svg" />
+            <div id="textHome">
+                <h4 style="color: white; border-style: groove;">Crud em php para cadastro de
+                    produtos</h4>
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Listar produtos</h5>
+                                <p class="card-text">Página de listagem de produtos.</p>
+                                <a href="listar_produtos.php" class="btn btn-primary">Listar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Cadastrar produtos</h5>
+                                <p class="card-text">Página de cadastrar produtos.</p>
+                                <a href="cadastrar_produto.php" class="btn btn-primary">Cadastrar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Nome do produto</label>
-                <input type="text" class="form-control" placeholder="Insira o nome do produto" name="nomeproduto"
-                    required>
-            </div>
-
-            <div class="form-group">
-                <label>Categoria</label>
-                <select class="form-select" name="categoria" required>
-
-                    <option value="1">Periféricos</option>
-                    <option value="2">Hardware</option>
-                    <option value="3">Software</option>
-                    <option value="4">Celulares</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label class="form-label">Quantidade do produto</label>
-                <input type="number" class="form-control" placeholder="Insira a quantidade do produto" name="quantidade"
-                    required>
-            </div>
-
-
-            <div class="form-group">
-                <label>Fornecedor</label>
-                <select class="form-select" name="fornecedor" required>
-
-                    <option>Fornecedor A</option>
-                    <option>Fornecedor B</option>
-                    <option>Fornecedor C</option>
-
-                </select>
-            </div>
-
-            <button type="submit" class="btn btn-primary" id="btnCad">Cadastrar</button>
-
-        </form>
+        </center>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
